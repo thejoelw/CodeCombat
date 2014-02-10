@@ -7,7 +7,7 @@ int main()
     std::cout << "Starting..." << std::endl;
 
 
-    Arena arena;
+    Arena arena(1024, 1024);
     Window window(arena);
     bool res = window.run();
 

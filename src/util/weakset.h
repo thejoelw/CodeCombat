@@ -38,6 +38,7 @@ public:
     iterator begin() {return arr.begin();}
     iterator end() {return arr.end();}
 
+    Type &first() {return arr.front();}
     Type &last() {return arr.back();}
 
     typename std::vector<Type>::size_type empty() {return arr.empty();}

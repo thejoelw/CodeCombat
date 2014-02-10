@@ -1,0 +1,44 @@
+ScannedRobot:
+	int getTeamId()
+	int getId()
+	double getPosX(), double getPosY()
+	double getVelX(), double getVelY()
+	double getHeading()
+	RobotControl login(short password)
+	void send(byte[] message)
+
+RobotControl:
+	setPassword(short password)
+	ScannedRobot[] getConnections()
+	logout()
+
+	void suspend()
+	void resume()
+	void restart()
+
+	void uploadCode(Code code)
+
+	void power(double power)
+	void steer(double steer)
+	Weapon[] getWeapons()
+	Accessory[] getAccessories()
+
+	void broadcast(byte[] message)
+
+	int getCredits()
+
+	int getCPUTime() // Returns ticks of cpu time left for turn. If negative, CPU temp is increased
+	double getCPUTemp() // Returns cpu temp. If too high, cpu is destroyed
+
+FactoryItem:
+	static int getPrice()
+	static int getInStock()
+	static int getMaxStock()
+	static int getNewItemTime()
+
+http://nadeausoftware.com/articles/2008/03/java_tip_how_get_cpu_and_user_time_benchmarking
+
+
+
+x >=  217 && x <=   229
+z >= -247 && z <=~ -213

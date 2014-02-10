@@ -1,0 +1,83 @@
+Vehicle parts:
+	Engine
+		Stationary (50 cr)
+		Slow (200 cr)
+		Medium (300 cr)
+		Fast (400 cr)
+	Armor
+		Light (200 cr)
+		Medium (300 cr)
+		Heavy (400 cr)
+	Battery
+		1 pack
+		2 packs
+		4 packs
+	Weapons
+		Rocket Launcher
+		Machine Gun
+		Raygun
+	CPU (Optional)
+
+	Vision (Optional)
+		90deg FOV
+		180deg FOV
+	Radio (Optional, for transmitting and receiving)
+	Antenna (Optional, only for transmitting)
+		5 m (50 px)
+		10 m (100 px)
+		25 m (250 px)
+		50 m (500 px)
+		100 m (1000 px)
+
+Rocket parts:
+	Warhead:
+		5 m (50 px)
+		10 m (100 px)
+		20 m (200 px)
+	CPU (Optional)
+
+	Vision (Optional)
+		90deg FOV
+		180deg FOV
+	Fuel
+		50 m (500 px)
+		100 m (1000 px)
+		250 m (2500 px)
+	Engine
+		Speed converges to 10 m/s (100 px/s)
+		Speed converges to 25 m/s (250 px/s)
+		Speed converges to 50 m/s (500 px/s)
+
+
+Occasionally, one of these items may be picked at random.
+For ~30 seconds, each robot near a base will receive a notification every tick and may bid on the item.
+The robot with the highest bid gets the item.
+	Radar vision
+	Invisibility cloak
+	Nuclear power
+	Power sharing
+
+Credits are shared by the team
+Capturing and selling an enemy robot gets the team credits
+
+Should be able to configure antenna receptions to go directly to the hardware, bypassing the cpu.
+Device power-off
+
+
+Bases:
+	Bases act as an access point to outside the game.
+	Only robots near a base may purchase other robots.
+	Only robots near a base may bid on power items.
+	Bases charge robot's battery packs.
+	A single robot starts the game at a base.
+
+
+
+Physical parts:
+	Armor
+	Engine
+	Battery
+	CPU
+	Radio
+	Ammunition
+	Hook

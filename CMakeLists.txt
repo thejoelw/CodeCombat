@@ -14,13 +14,21 @@ endif()
 
 set(CodeCombat_sources
     src/arena.cpp
+    src/damage.cpp
+    src/javainterface.cpp
+    src/robot.cpp
     src/window.cpp
 )
 
 set(CodeCombat_headers
     src/arena.h
+    src/cell.h
+    src/damage.h
     src/defs.h
     src/gl.h
+    src/javainterface.h
+    src/robot.h
+    src/util/direction.h
     src/util/weakset.h
     src/window.h
 )
