@@ -7,7 +7,7 @@
 
 struct Cell
 {
-    enum {t_empty, t_dirt, t_steel} type;
+    enum Type {empty, base, rock, steel} type;
 
     struct
     {

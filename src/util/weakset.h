@@ -10,6 +10,7 @@ class WeakSet
 {
 public:
     typedef typename std::vector<Type>::iterator iterator;
+    typedef typename std::vector<Type>::const_iterator const_iterator;
 
     void insert(Type &item)
     {
@@ -37,6 +38,9 @@ public:
 
     iterator begin() {return arr.begin();}
     iterator end() {return arr.end();}
+
+    const_iterator cbegin() const {return arr.cbegin();}
+    const_iterator cend() const {return arr.cend();}
 
     Type &first() {return arr.front();}
     Type &last() {return arr.back();}

@@ -39,11 +39,6 @@ Window::Window(Arena &arena)
     // Set GLFW options
     glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
     glfwSetInputMode(window, GLFW_STICKY_MOUSE_BUTTONS, GL_TRUE);
-
-    glDisable(GL_DEPTH_TEST);
-    glClearColor(0.0, 0.0, 0.2, 0.0);
-
-    //glfwSetCursorPosCallback(window, cursor_callback);
 }
 
 Window::~Window()
@@ -55,6 +50,9 @@ Window::~Window()
 bool Window::run()
 {
     if (error) {return true;}
+
+    glDisable(GL_DEPTH_TEST);
+    glClearColor(0.0, 0.0, 0.0, 0.0);
 
     double sleep_to = glfwGetTime();
 
@@ -76,7 +74,7 @@ bool Window::run()
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
 
-        glScalef(16.0, 16.0, 1.0);
+        glScalef(32.0, 32.0, 1.0);
 
         /*
         double cursor_x, cursor_y;

@@ -36,7 +36,7 @@ public:
         char node_damaged : 1;
     } damage [DAMAGE_LENGTH * DAMAGE_WIDTH];
 
-    void render();
+    void render() const;
 };
 
 #endif // ROBOT_H

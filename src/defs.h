@@ -18,7 +18,7 @@
 #define DAMAGE_RES 16
 
 // Robot dimensions in meters
-#define ROBOT_LENGTH 10.0/16
-#define ROBOT_WIDTH 6.0/16
+#define ROBOT_LENGTH 12.0/16
+#define ROBOT_WIDTH 10.0/16
 
 #endif // DEFS_H

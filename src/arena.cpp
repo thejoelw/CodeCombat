@@ -1,10 +1,12 @@
 #include "arena.h"
 
-Arena::Arena(unsigned int cells_x, unsigned int cells_y)
-    : cells_x(cells_x)
-    , cells_y(cells_y)
+Arena::Arena(MapGenerator &mg)
+    : cells_x(mg.get_cells_x())
+    , cells_y(mg.get_cells_y())
     , cells(new Cell[cells_x * cells_y])
-{}
+{
+    mg.make_cells(cells);
+}
 
 Arena::~Arena()
 {
@@ -44,6 +46,8 @@ void Arena::tick(double time)
     while (i != robots.end())
     {
         Robot &r = **i;
+
+        r.rot += 0.01;
 
         float rot_sin = sin(r.rot);
         float rot_cos = cos(r.rot);
@@ -195,10 +199,46 @@ void Arena::tick(double time)
     }
 }
 
-void Arena::render(unsigned int width, unsigned int height)
+void Arena::render(unsigned int width, unsigned int height) const
 {
-    std::vector<Robot*>::iterator i = robots.begin();
-    while (i != robots.end())
+    unsigned int x = 0;
+    while (x < cells_x)
+    {
+        unsigned int y = 0;
+        while (y < cells_y)
+        {
+            Cell::Type t = cells[cell_i(x, y)].type;
+            if (t == Cell::base || t == Cell::rock || t == Cell::steel)
+            {
+                glBegin(GL_QUADS);
+
+                switch (t)
+                {
+                case Cell::base:
+                    glColor3ub(0, 255, 255);
+                    break;
+                case Cell::rock:
+                    glColor3ub(128, 64, 64);
+                    break;
+                case Cell::steel:
+                    glColor3ub(64, 64, 64);
+                    break;
+                }
+
+                glVertex2i(x * CELL_SIZE, y * CELL_SIZE);
+                glVertex2i((x + 1) * CELL_SIZE, y * CELL_SIZE);
+                glVertex2i((x + 1) * CELL_SIZE, (y + 1) * CELL_SIZE);
+                glVertex2i(x * CELL_SIZE, (y + 1) * CELL_SIZE);
+                glEnd();
+            }
+
+            y++;
+        }
+        x++;
+    }
+
+    WeakSet<Robot*>::const_iterator i = robots.cbegin();
+    while (i != robots.cend())
     {
         (*i)->render();
         i++;

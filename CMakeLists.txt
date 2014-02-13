@@ -16,7 +16,10 @@ set(CodeCombat_sources
     src/arena.cpp
     src/damage.cpp
     src/javainterface.cpp
+    src/mapgenerator.cpp
     src/robot.cpp
+    src/util/random.cpp
+    src/util/simplexnoise.cpp
     src/window.cpp
 )
 
@@ -27,8 +30,11 @@ set(CodeCombat_headers
     src/defs.h
     src/gl.h
     src/javainterface.h
+    src/mapgenerator.h
     src/robot.h
     src/util/direction.h
+    src/util/random.h
+    src/util/simplexnoise.h
     src/util/weakset.h
     src/window.h
 )

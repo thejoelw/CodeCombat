@@ -1,6 +1,6 @@
 #include "robot.h"
 
-void Robot::render()
+void Robot::render() const
 {
     /*
     float x;
