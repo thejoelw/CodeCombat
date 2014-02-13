@@ -45,8 +45,11 @@ void Arena::tick(double time)
     {
         Robot &r = **i;
 
-        r.x += r.rot_sin * r.v;
-        r.y += r.rot_cos * r.v;
+        float rot_sin = sin(r.rot);
+        float rot_cos = cos(r.rot);
+
+        r.x += rot_sin * r.v;
+        r.y += rot_cos * r.v;
 
         // Bounce off walls
         /*

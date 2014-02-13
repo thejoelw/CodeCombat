@@ -3,8 +3,11 @@
 
 #include "defs.h"
 
+#include "gl.h"
+
 #include "util/direction.h"
 
+#include <iostream>
 #include <math.h>
 
 #define DAMAGE_LENGTH (unsigned int)(ROBOT_LENGTH * DAMAGE_RES)
@@ -21,8 +24,6 @@ public:
     float v;
 
     float rot;
-    float rot_sin;
-    float rot_cos;
 
     unsigned int cell_ax;
     unsigned int cell_zx;

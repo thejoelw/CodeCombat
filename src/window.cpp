@@ -40,6 +40,7 @@ Window::Window(Arena &arena)
     glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
     glfwSetInputMode(window, GLFW_STICKY_MOUSE_BUTTONS, GL_TRUE);
 
+    glDisable(GL_DEPTH_TEST);
     glClearColor(0.0, 0.0, 0.2, 0.0);
 
     //glfwSetCursorPosCallback(window, cursor_callback);
@@ -64,8 +65,23 @@ bool Window::run()
         int height;
 
         glfwGetFramebufferSize(window, &width, &height);
+
         glViewport(0, 0, width, height);
         glClear(GL_COLOR_BUFFER_BIT);
+
+        glMatrixMode(GL_PROJECTION);
+        glLoadIdentity();
+        glOrtho(0, width, height, 0, 0, 1);
+
+        glMatrixMode(GL_MODELVIEW);
+        glLoadIdentity();
+
+        glScalef(16.0, 16.0, 1.0);
+
+        /*
+        double cursor_x, cursor_y;
+        glfwGetCursorPos(window, &cursor_x, &cursor_y);
+        */
 
         // TODO: tick time should adapt based on load
         arena.tick(TARGET_SPF);
@@ -85,6 +101,11 @@ bool Window::run()
         {
             // No extra time
             sleep_to = time;
+        }
+
+        if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+        {
+            glfwSetWindowShouldClose(window, true);
         }
 
         glfwPollEvents();
